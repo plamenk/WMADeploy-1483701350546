@@ -28,6 +28,8 @@ stages:
       
     script: |-
       #!/bin/bash
+      cf create-service watson_vision_combined free "sample-node-red-cloudantNoSQLDB"
+         
       cf push "${CF_APP}"
 
       # View logs
