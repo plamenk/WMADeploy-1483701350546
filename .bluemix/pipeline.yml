@@ -37,8 +37,10 @@ stages:
       cf create-service text_to_speech standard "text_to_speech ${CF_SPACE}"
       cf create-service iotf-service iotf-service-free "iotf-service ${CF_SPACE}"
       cf create-service watson_vision_combined free "watson_vision_combined ${CF_SPACE}"
+      cf create-service cloudantNoSQLDB Lite "sample-node-red-cloudantNoSQLDB"
       
-      
+      cf push "${CF_APP}"
+
       cf push "${CF_APP}"
 
       cf bind-service ${CF_APP} "alchemy ${CF_SPACE}"
