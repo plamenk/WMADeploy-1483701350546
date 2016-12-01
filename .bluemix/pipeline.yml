@@ -40,7 +40,12 @@ stages:
       
       cf push "${CF_APP}"
 
-      
+      cf bind-service ${CF_APP} "alchemy ${CF_SPACE}"
+      cf bind-service ${CF_APP} "cloudant ${CF_SPACE}"
+      cf bind-service ${CF_APP} "conversation ${CF_SPACE}"
+      cf bind-service ${CF_APP} "document_conversion ${CF_SPACE}"
+      cf bind-service ${CF_APP} "retrieve_and_rank ${CF_SPACE}"
+      cf bind-service ${CF_APP} "watson_vision_combined ${CF_SPACE}"
       
       # View logs 
       #cf logs "${CF_APP}" --recent
