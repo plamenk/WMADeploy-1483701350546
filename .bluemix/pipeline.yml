@@ -48,7 +48,7 @@ stages:
       cf bind-service ${CF_APP} "retrieve_and_rank ${CF_SPACE}"
       cf bind-service ${CF_APP} "watson_vision_combined ${CF_SPACE}"
       
-      cf restart-app-instance "${CF_APP}"
+      cf restart-app-instance "${CF_APP}" 0
       
       # View logs 
       #cf logs "${CF_APP}" --recent
