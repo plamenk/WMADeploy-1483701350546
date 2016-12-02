@@ -45,7 +45,7 @@ var settings = module.exports = {
     // Serve up the welcome page
     httpStatic: path.join(__dirname,"public"),
 
-    functionGlobalContext: { },
+ 	functionGlobalContext: {process: process},
 
     storageModule: require("./couchstorage")
 }
