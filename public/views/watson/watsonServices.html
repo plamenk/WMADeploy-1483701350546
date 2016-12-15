@@ -1,0 +1,287 @@
+
+<div class="container">
+
+	<p class="page-header" style="margin-top: 2px;"></p>
+
+	<div class="_demo--banner" style="background-color: #4178bd;">
+		<div class="_demo--container">
+			<div class="banner--service-icon-container">
+				<img class="banner--service-icon"
+					src="../../watson/images/icons/dialog.svg"
+					alt="Concept Insight Service Demo Icon">
+			</div>
+			<div class="banner--service-info">
+
+				<img class="banner--service-icon_INLINE"
+					src="../../watson/images/icons/dialog.svg"
+					alt="Concept Insight Service Demo Icon">
+				<h1 class="base--h1">{{Dialog}}</h1>
+				<div class="banner--service-description">The Dialog service
+					provides a comprehensive, technology platform for managing
+					conversations between virtual agents and users through an
+					Application Programming Interface (API).</div>
+				<div class="banner--service-resource">
+					<span class="icon icon-link"></span> <strong>Resources:</strong>
+				</div>
+				<div class="banner--service-links">
+					<li class="base--li banner--service-link-item"
+						style="color: white;"><a
+						href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/dialog/api/v1/"
+						class="base--a">API Reference</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/dialog.html"
+						class="base--a">Documentation</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/dialog-nodejs.git"
+						class="base--a">Fork and Deploy on Bluemix</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="https://github.com/watson-developer-cloud/dialog-nodejs"
+						class="base--a">Fork on Github</a></li>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<p class="page-header" style="margin-bottom: 2px;"></p>
+
+
+	<div class="_demo--banner" style="background-color: #82a43a;">
+		<div class="_demo--container">
+			<div class="banner--service-icon-container">
+				<img src="../../watson/images/service-icon.svg"
+					alt="Visual Recognition API Icon" class="banner--service-icon">
+			</div>
+			<div class="banner--service-info">
+				<h1 class="banner--service-title base--h1">
+					<img src="../../watson/images/service-icon.svg"
+						alt="Visual Recognition API Icon"
+						class="banner--service-icon_INLINE">Visual Recognition
+				</h1>
+				<div class="banner--service-description">Visual Recognition
+					partnered with Alchemy Vision, allows you to derive insights from
+					an image based on its visual content. You can organize image
+					libraries, understand an individual image, and create custom
+					classifiers for specific results that are tailored to your needs.</div>
+				<div class="banner--service-resource">
+					<span class="icon icon-link"> </span><strong>Resources:</strong>
+				</div>
+				<div class="banner--service-links">
+					<li class="base--li banner--service-link-item"><a
+						href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/visual-recognition/api/v2/"
+						class="base--a">API Reference</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/visual-recognition/"
+						class="base--a">Documentation</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="https://github.com/watson-developer-cloud/visual-recognition-nodejs"
+						class="base--a">Fork on Github</a></li>
+					<li class="base--li banner--service-link-item"><a
+						href="https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/visual-recognition-nodejs"
+						class="base--a">Fork and Deploy on Bluemix</a></li>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<p class="page-header" style="margin-bottom: 2px;"></p>
+
+
+	<div class="_demo--banner">
+		<div class="_demo--container">
+			<div class="service-hero-container speech-theme-color">
+				<div class="row">
+				<div class="banner--service-icon-container">
+				<img src="../../watson/images/TexttoSpeech.svg"
+					alt="Visual Recognition API Icon" class="banner--service-icon">
+			</div>					
+					<div class="banner--service-info">
+					<h1 class="banner--service-title base--h1">
+					<img src="../../watson/images/service-icon.svg"
+						alt="Visual Recognition API Icon"
+						class="banner--service-icon_INLINE">Text to Speech
+				</h1>
+						<span>Speech | General Availability</span>
+						<h3>Designed for streaming low-latency synthesis of audio
+							from written text. The service synthesizes natural-sounding
+							speech from input text in a variety of languages and voices that
+							speak with appropriate cadence and intonation.</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Step 1 Section-->
+    <div class="container">
+      <!-- Step 3 Section-->
+      <!-- First column of inputs -->
+      <div class="row">
+        
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                <span id="dropdownMenuDefault" class="dropdown-text">US English broadband model (16KHz) </span>
+                <span class="caret"></span>
+              </button>
+              <ul id="dropdownMenuList" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              </ul>
+            </div>
+          </div><!-- .col-lg-6 -->
+          <div style="float:left;margin-left:130px;">
+            <input type="text" id="tb_keywords" value="Type comma separated keywords here (OPTIONAL)." style="font-style:italic;color:#A0A0A0;" autocomplete="off"/>
+            <!--
+              <div id="btnLoadKWS">
+                <img src="images/upload-black.svg" class="icon"></img>
+                Select Keywords
+                <input type="file" style="display:none;">
+                <span id="error-wrong-keywords-filetype">
+                  <div>
+                    Only *.txt files containing a list of keywords can be loaded
+                    <a class="pull-right" href="#" id="errorWrongKeywordsFiletypeClose">&times;</a>
+                  </div>
+                </span>
+              </div>	
+            -->
+          </div> 
+
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="audioParent">
+              <audio style="display:none" class="audio" controls>
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        </div><!-- row -->
+
+
+        <div class="row">
+          <nav class="navbar navbar-inverse">
+          <ul class="navbar-text">
+            <li id="recordButton" class="button-row nav-inverse-color">
+            <img id="microphoneIcon" src="images/microphone.svg" class="icon">
+            <span class="nav-label">Record Audio</span>
+            </li>
+          </ul>
+
+          </nav>
+        </div>
+        <!-- Tab panes -->
+        <div class="row" style="  margin: 0;">
+          <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 0;">
+            <div id="transcription_text" class="well">
+              <form autocomplete="off" class="form-horizontal">
+                <div role="tabpanel">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home2" aria-controls="home" role="tab" data-toggle="tab">Text</a></li>
+                    <li role="presentation"><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">JSON</a></li>
+                  </ul>
+                  <div class="hr-tab"></div>
+                  <fieldset>
+                    <div class="row error-row">
+                      <div class="col-lg-12">
+                        <div id="errorAlert" >
+                          <span id="errorMessage"></span>
+                          <a class="pull-right" href="#" id="errorClose">&times;</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row notification-row">
+                      <div class="col-lg-12">
+                        <div id="notificationAlert" >
+                          <span id="notificationMessage"></span>
+                          <a class="pull-right" href="#" id="notificationClose">&times;</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row tabpanel-row">
+                      <div class="col-lg-12">
+                        <div class="tab-content">
+                          <div role="tabpanel" class="tab-pane active" id="home2">
+                            <textarea readonly id="resultsText" dir="auto"></textarea>
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="profile2">
+                            <textarea readonly id="resultsJSON"></textarea>
+                          </div>
+                        </div>
+                      </div><!-- .col-lg-12 -->
+                    </div>
+                  </fieldset>
+                </div>
+              </form>
+            </div>
+            <div class="keywords_pane">
+              <div class="keywords_title">Keywords Spotted</div>
+              <div id="keywords">
+                <ul style="margin-top:10px; margin-left:-40px;"></ul>
+              </div>
+            </div>  
+          </div><!-- /.well -->
+        </div><!-- /.tabpanel -->
+
+        <div class="col-lg-12 col-md-12 col-sm-12">          
+          <div style="padding:0;margin-top:1em;">
+            <canvas id="canvas" width="960" height="368"/>
+            </canvas>
+            <div id="confusion-networks">
+              <div id="canvas-placeholder">
+                Word Alternatives will appear shortly after audio transcription is started
+              </div>
+              <input id="vslider" type="range" orient="vertical"/>
+            </div>
+            <input id="hslider" type="range" style="display:none;"/>
+            <img id="left-arrow" src="images/arrow-left-icon-disabled.svg"/>
+            <img id="right-arrow" src="images/arrow-right-icon-disabled.svg"/>
+          </div>
+
+            <!-- Spacer-->
+            <!-- TODO: Move this to CSS-->
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <br><br>
+              </div>
+            </div>
+
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+
+      </div><!-- /.container -->
+
+      <!-- for file upload dialog in toolbar -->
+      <!-- <input style="display:none" type="file" id="fileUploadDialog"> -->
+
+      <!-- Place js files at the end of the document, with fallbacks for CDNs -->
+     
+
+
+
+
+
+
+</div>
+
+<link rel="icon" href="../../watson/images/favicon.ico"
+	type="image/x-icon">
+<link rel="stylesheet" href="../../watson/css/style.css">
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>

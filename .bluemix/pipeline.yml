@@ -1,4 +1,4 @@
----
+ ---
 stages:
 - name: Build Stage
   inputs:
@@ -47,9 +47,15 @@ stages:
       cf bind-service ${CF_APP} "document_conversion ${CF_SPACE}"
       cf bind-service ${CF_APP} "retrieve_and_rank ${CF_SPACE}"
       cf bind-service ${CF_APP} "watson_vision_combined ${CF_SPACE}"
-      
+      cf bind-service ${CF_APP} "speech_to_text ${CF_SPACE}"
+      cf bind-service ${CF_APP} "text_to_speech ${CF_SPACE}"
+      cf bind-service ${CF_APP} "iotf-service ${CF_SPACE}"
+  
+
+
       cf restart-app-instance "${CF_APP}" 0
       
       # View logs 
       #cf logs "${CF_APP}" --recent
-      
+ 
+ 

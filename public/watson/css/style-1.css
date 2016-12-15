@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+
+.icon {
+  vertical-align: middle;
+  display: inline; }
+
+.base--div:before,
+.base--STYLED div:before,
+div:before,
+.base--article:before,
+.base--STYLED article:before,
+article:before,
+.base--div:after,
+.base--STYLED div:after,
+div:after, .base--article:after,
+.base--STYLED article:after,
+article:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+
+article {
+  box-sizing: border-box; }
+  .base--div:before,
+  .base--STYLED div:before,
+  div:before,
+  .base--article:before,
+  .base--STYLED article:before,
+  article:before,
+  .base--div:after,
+  .base--STYLED div:after,
+  div:after, .base--article:after,
+  .base--STYLED article:after,
+  article:after {
+    box-sizing: border-box; }
+
+@font-face {
+  font-family: "icons";
+  src: url("../fonts/icon-fonts/icons.eot");
+  src: url("../fonts/icon-fonts/icons.eot?#iefix") format("eot"), url("../fonts/icon-fonts/icons.woff") format("woff"), url("../fonts/icon-fonts/icons.ttf") format("truetype"), url("../fonts/icon-fonts/icons.svg#icons") format("svg"); }
+
+.icon:before {
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none; }
+
+.icon-analyze:before {
+  content: "\E001"; }
+
+.icon-avatar-watson:before {
+  content: "\E002"; }
+
+.icon-avatar-you:before {
+  content: "\E003"; }
+
+.icon-back:before {
+  content: "\E004"; }
+
+.icon-back2top:before {
+  content: "\E005"; }
+
+.icon-dialog:before {
+  content: "\E006"; }
+
+.icon-link:before {
+  content: "\E007"; }
+
+.icon-reset:before {
+  content: "\E008"; }
+
+.icon {
+  vertical-align: middle;
+  display: inline; }
+
+/*! Reset/normalize hybrid with major contributions from normalize.css, html5doctor.com Reset Stylesheet, and http://html5reset.org/
+
+* Sam Richard - http://snugug.com/
+* Nicholas Gallagher, Jonathan Neal - http://necolas.github.io/normalize.css/
+* Richard Clark - http://richclarkdesign.com
+* Tim Murtaugh - http://monkeydo.biz/
+*/
+
+
+
+.icon-hyperlink {
+  float: right; }
+  .icon-hyperlink button[type="reset"] {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    padding: 0rem;
+    margin: 0rem;
+    color: #a53725; }
+    .icon-hyperlink button[type="reset"]:hover,
+    .icon-hyperlink button[type="reset"]:focus {
+      color: #aeaeae; }
+  .icon-hyperlink .icon {
+    color: #a53725; }
+  .icon-hyperlink .icon-reset {
+    font-size: 1.5em; }
+
+
+
+.separate-line {
+  border-bottom: 2px solid #ececec;
+  margin-bottom: 2rem; }
+
+.chat-window {
+  position: relative; }
+  .chat-window--message-input {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; }
+
+.chat-box {
+  position: relative;
+  height: 20rem; }
+  .chat-box--pane {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%; }
+  .chat-box--item {
+    transition: 0.4s;
+    opacity: 1;
+    visibility: visible;
+    display: table;
+    width: 100%; }
+    .chat-box--item_WATSON {
+      background-color: #ececec; }
+      .chat-box--item_WATSON > * {
+        float: left; }
+    .chat-box--item_YOU {
+      background-color: #f4f4f4; }
+      .chat-box--item_YOU > * {
+        float: right; }
+    .chat-box--item_HIDDEN {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-40px); }
+  .chat-box--container {
+    display: table-row; }
+  .chat-box--avatar {
+    display: table-cell;
+    vertical-align: middle;
+    height: 5rem;
+    width: 5rem; }
+    .chat-box--avatar_WATSON {
+      background-color: #325c80; }
+    .chat-box--avatar_YOU {
+      background-color: #00B2EF; }
+  .chat-box--avatar-img {
+    width: 100%;
+    height: auto; }
+  .chat-box--message {
+    display: table-cell;
+    vertical-align: middle;
+    width: calc(100% - 80px);
+    min-height: 5rem;
+    margin-top: 0rem;
+    padding: 1rem; }
+    .chat-box--item_WATSON .chat-box--message {
+      background-color: #ececec; }
+    .chat-box--item_YOU .chat-box--message {
+      background-color: #f4f4f4;
+      text-align: right; }
+  .chat-box--message-vertical {
+    vertical-align: middle;
+    width: 100%; }
+  .chat-box--item_YOU .chat-box--message-text {
+    padding: 0.65rem 0rem; }
+
+.radio-group--label {
+  display: block;
+  color: #325c80;
+  margin-right: 2rem; }
+  @media (min-width: 700px) {
+    .radio-group--label {
+      display: inline-block; } }
+
+.base--radio:checked + label:before, .base--STYLED input[type="radio"]:checked + label:before {
+  background: radial-gradient(#325c80 40%, transparent 40%); }
+
+.data--information {
+  margin-top: 0.2em; }
+
+.data--variable {
+  margin-top: 0; }
+
+.data--variable-title {
+  color: #464646;
+  font-weight: 400; }
+
+.data--variable-value {
+  color: #464646;
+  font-weight: 600; }
+
+.data--profile {
+  margin-top: 0.2em; }
+
+.loader {
+  text-align: center; }
+
+@media (min-width: 868px) {
+  ._demo--container {
+    width: 860px;
+    margin: 0rem auto; } }
+
+@media (min-width: 1200px) {
+  ._demo--container {
+    width: 992px;
+    margin: 0rem auto; } }
+
+._demo--heading {
+  background-color: #404041;
+  margin-top: 0;
+  padding-bottom: 1rem; }
+  @media (min-width: 700px) {
+    ._demo--heading {
+      padding-bottom: 0; } }
+
+._demo--content {
+  padding: 2rem 1rem; }
+  @media (min-width: 768px) {
+    ._demo--content {
+      padding: 2rem 0rem; } }
+
+._content--dialog {
+  margin-top: 2rem; }
+  @media (min-width: 768px) {
+    ._content--dialog {
+      width: 50%;
+      clear: right;
+      float: left;
+      padding-right: 2rem; } }
+
+._content--data {
+  margin-top: 0; }
+  @media (min-width: 768px) {
+    ._content--data {
+      width: 50%;
+      clear: right;
+      float: left;
+      margin-left: 0;
+      margin-right: 0%; } }

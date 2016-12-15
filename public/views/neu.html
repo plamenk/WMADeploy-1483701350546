@@ -1,0 +1,420 @@
+
+
+
+<header>
+	<h2>Banking demo</h2>
+	<!-- img src="img/ibm-logo.jpg" alt="IBM" style="width:151px;height:151px" -->
+	<img src="img/banking-banner.png" alt="IBM"
+		style="width: 100%; height: 100px">
+</header>
+<br>
+
+<!-- center left-->
+<div class="col-md-6">
+	<div class="panel panel-default panel-condensed" id="myProfilePanel">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-md-11">
+					<h4>My Profile</h4>
+				</div>
+				<div class="col-md-1">
+					<a data-toggle="collapse" data-parent="myProfilePanel"
+						href="#myProfileBody"> <span
+						class="glyphicon glyphicon-resize-small"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="myProfileBody" class="panel-collaps collapse in">
+			<div class="panel-body">
+
+				<form class="form-horizontal" role="form">
+
+					<fieldset class="form-stacked">
+						<legend>User Information</legend>
+						<div class="row">
+							<div class="form group col-md-4">
+								<label>First Name <input type="first_name"
+									class="form-control" id="inputFirstName"
+									placeholder="First Name">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>Last Name <input type="last_name"
+									class="form-control" id="inputLastName" placeholder="Last Name">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>Nick Name <input type="nick_name"
+									class="form-control" id="inputNick" placeholder="Nickname">
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form group col-md-4">
+								<label>Birthdate <input type="birth_date"
+									class="form-control" id="inputDob" placeholder="DOB">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>SSN <input type="ssn" class="form-control"
+									id="inputSSN" placeholder="SSN">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>WVEIS Emp. ID <input type="email"
+									class="form-control" id="inputEID"
+									placeholder="WVEIS Employee ID">
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form group col-md-4">
+								<label>Salary Class</label>
+								<div>
+									Unknown <span class="tooltips glyphicon glyphicon-info-sign"
+										title=""
+										data-original-title="If your salary class is inaccurate please contact your supervisor"
+										data-toggle="tooltip"></span>
+								</div>
+							</div>
+							<div class="form group col-md-4">
+								<label>Teaching Experience</label>
+								<div>
+									Less than One Year <span
+										class="tooltips glyphicon glyphicon-info-sign" title=""
+										data-original-title="If your years of teaching experience is inaccurate please contact your supervisor"
+										data-toggle="tooltip"></span>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset class="form-stacked">
+						<legend>Contact Information</legend>
+						<div class="row">
+							<div class="form group col-md-4">
+								<label>Email <input type="email" class="form-control"
+									id="inputEmail" placeholder="Email Address">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>Address 1 <input type="address_one"
+									class="form-control" id="inputAddressOne"
+									placeholder="Address One">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>Address 2 <input type="address_two"
+									class="form-control" id="inputAddressTwo"
+									placeholder="Address Two">
+								</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form group col-md-4">
+								<label>City <input type="city" class="form-control"
+									id="inputCity" placeholder="City">
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>State <select id="inputState" name="state"
+									class="select form-control" style="" title="State">
+
+
+										<option value="0">&nbsp;</option>
+
+
+										<option value="148" selected="selected">WV</option>
+
+
+										<option value="146">VA</option>
+
+
+										<option value="117">KY</option>
+
+
+
+										<option value="149">WI</option>
+
+
+										<option value="150">WY</option>
+
+
+										<option value="0">--</option>
+								</select>
+								</label>
+							</div>
+							<div class="form group col-md-4">
+								<label>Zip Code <input type="zip" class="form-control"
+									id="inputZipCode" placeholder="Zip">
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<br>
+					<div class="btn-toolbar">
+						<div class="btn-group pull-right">
+							<button class="btn btn-danger">Cancel</button>
+							<button class="btn btn-primary">Update</button>
+						</div>
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+		<!--/panel-body-->
+	</div>
+	<!--/panel-->
+
+	<!--
+					<div class="btn-group btn-group-justified">
+						<a href="#" class="btn btn-primary col-sm-3">
+							<i class="glyphicon glyphicon-plus"></i><br>
+							Service
+						</a>
+						<a href="#" class="btn btn-primary col-sm-3">
+							<i class="glyphicon glyphicon-cloud"></i><br>
+							Cloud
+						</a>
+						<a href="#" class="btn btn-primary col-sm-3">
+							<i class="glyphicon glyphicon-cog"></i><br>
+							Tools
+						</a>
+						<a href="#" class="btn btn-primary col-sm-3">
+							<i class="glyphicon glyphicon-question-sign"></i><br>
+							Help
+						</a>
+					</div>
+					-->
+
+
+</div>
+<!--/col-->
+<div class="col-md-6">
+	<div class="panel panel-default panel-condensed" id="myClassesanel">
+
+
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-md-11">
+					<h4>My Classes</h4>
+				</div>
+				<div class="col-md-1">
+					<a data-toggle="collapse" data-parent="myClasssesPanel"
+						href="#myClassesBody"> <span
+						class="glyphicon glyphicon-resize-small"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="myClassesBody" class="panel-collaps collapse in">
+			<div class="panel-body">
+
+
+				<!-- CLASS 1 -->
+				<br class="">
+				<div class="panel panel-default">
+					<div class="panel-heading">Eckman Day Class - 815-2014-8209</div>
+					<div class="panel-body">
+						<h4 class="">RESA 1 / Catholic Charities WV / Eckman Lerning
+							Center 1447</h4>
+
+						<div class="row">
+							<div class="col-md-12">
+								<label class="label-inverse">Instructors</label>
+								<ul class="list-inline">
+									<li>Bill Rawlinson</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<label class="label-inverse">Private</label> No
+							</div>
+							<div class="col-md-4">
+								<label class="label-inverse">URL</label> <a
+									href="http://resa1.k12.wv.us">visit</a>
+							</div>
+							<div class="col-md-4">
+								<label class="label-inverse">Program Type</label> Regular ABE
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<label class="label-inverse">Start Date</label> 01 July 2013
+							</div>
+							<div class="col-md-4">
+								<a href="#" class="">View Class Schedule</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class="">View Aides</a>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<a href="#" class=""># Missing Assessment : 02</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class=""># Missing Release : 14</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class=""># Missing SSN : 08</a>
+							</div>
+						</div>
+						<br>
+						<div class="btn-group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-inbox"></span> Reports <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Student Roster</a></li>
+									<li><a href="#">Withdrawn Student Report</a></li>
+									<li><a href="#">ABE 300 Monthly Attendance Report</a></li>
+									<li><a href="#">ABE 300A Report</a></li>
+									<li><a href="#">Student Assessment History Report</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Class Summary</a></li>
+									<li><a href="#">Student Achievement Report</a></li>
+									<li><a href="#">Hours Between Assessment Report</a></li>
+									<li><a href="#">Student Type Report</a></li>
+								</ul>
+							</div>
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-wrench"></span> Edit Class
+							</button>
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-calendar"></span> Log
+								Attendance
+							</button>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-pencil"></span> Student <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Enroll</a></li>
+									<li><a href="#">Assess</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- CLASS 2 -->
+				<br class="">
+				<div class="panel panel-default">
+					<div class="panel-heading">CTLC - 12-2014-8630</div>
+					<div class="panel-body">
+						<h4 class="">RESA 2 / Cabell County Schools / CCCTC</h4>
+
+						<div class="row">
+							<div class="col-md-12">
+								<label class="label-inverse">Instructors</label>
+								<ul class="list-inline">
+									<li>Bill Rawlinson</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<label class="label-inverse">Private</label> No
+							</div>
+							<div class="col-md-4">
+								<label class="label-inverse">URL</label> <a
+									href="http://ccctc.cabe.tec.wv.us">visit</a>
+							</div>
+							<div class="col-md-4">
+								<label class="label-inverse">Program Type</label> Regular ABE
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<label class="label-inverse">Start Date</label> 09 SEP 2013
+							</div>
+							<div class="col-md-4">
+								<a href="#" class="">View Class Schedule</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class="">View Aides</a>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<a href="#" class=""># Missing Assessment : 02</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class=""># Missing Release : 14</a>
+							</div>
+							<div class="col-md-4">
+								<a href="#" class=""># Missing SSN : 08</a>
+							</div>
+						</div>
+						<br>
+						<div class="btn-group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-inbox"></span> Reports <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Student Roster</a></li>
+									<li><a href="#">Withdrawn Student Report</a></li>
+									<li><a href="#">ABE 300 Monthly Attendance Report</a></li>
+									<li><a href="#">ABE 300A Report</a></li>
+									<li><a href="#">Student Assessment History Report</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Class Summary</a></li>
+									<li><a href="#">Student Achievement Report</a></li>
+									<li><a href="#">Hours Between Assessment Report</a></li>
+									<li><a href="#">Student Type Report</a></li>
+								</ul>
+							</div>
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-wrench"></span> Edit Class
+							</button>
+							<button class="btn btn-default">
+								<span class="glyphicon glyphicon-calendar"></span> Log
+								Attendance
+							</button>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-pencil"></span> Student <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Enroll</a></li>
+									<li><a href="#">Assess</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<!--/panel-body-->
+	</div>
+	<!--/panel-->
+</div>
+
+
+
+

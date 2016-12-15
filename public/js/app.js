@@ -1,0 +1,2 @@
+//angular.module('sampleApp', ['ngRoute', 'ngMaterial', 'appRoutes', 'MainCtrl', 'ProjectCtrl', 'DBCtrl', 'DBSelect', 'NerdCtrl', 'GeekCtrl','GeekService','RestCtrl']);
+angular.module('sampleApp', ['ngRoute', 'ngMaterial', 'appRoutes', 'MainCtrl', 'WTCtrl']);

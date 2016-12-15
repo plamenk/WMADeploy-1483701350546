@@ -1,0 +1,671 @@
+
+<div class="row" ng-controller="DSIController">
+
+
+
+	<div class="col-lg-12">
+		<div class="huge">
+			<p class="page-header" style="margin-top: 5px;">{{mainHeader}}</p>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-2">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<md-icon
+						md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+						style="color: greenyellow"></md-icon>
+					Rezepte
+				</div>
+				<div class="panel-body" style="min-height: 400px;">
+
+
+					<md-subheader>Aktionen erzeugen</md-subheader>
+					<md-list> <md-list-item ng-repeat="item in items">
+					<md-button ng-click="dsiItemGetAllEntities($index)"
+						md-autofocus="$index == 2" class="md-list-item-content">
+					<md-icon md-svg-src="{{item.icon}}"></md-icon> <span
+						class="md-inline-list-icon-label">{{ item.name }}</span> </md-button> </md-list-item> <md-button
+						ng-click="dsiAllEntities()" class="md-fab md-primary"
+						aria-label="Use Android"> <md-icon
+						md-svg-src="../libs/material-design-icons/action/svg/production/ic_android_48px.svg"></md-icon></md-button>
+					<span class="md-inline-list-icon-label">Load DSI Entities</span> </md-list>
+
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+		<div class="col-md-6">
+
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<md-icon
+						md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+						style="color: greenyellow"></md-icon>
+					Generate Entities
+				</div>
+				<div class="panel-body" style="min-height: 400px;">
+
+					<div ng-show="entityState == 'Arzt'">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="page-header">
+								<h3>
+									<span class="glyphicon glyphicon-tower"></span> Neuen Arzt
+									anlegen
+								</h3>
+							</div>
+
+
+							<div id="messag" class="alert alert-success" ng-show="messag"
+								ng-bind="messag"></div>
+							<div data-ng-show="progress.active()"
+								style="color: red; font-size: 50px;">Sending…</div>
+							<form name="helpForm" novalidate role="form">
+
+								<div class="form-group">
+									<label for="name">Name </label> </span> <input type="text" name="name"
+										ng-model="name" class="form-control" required />
+								</div>
+
+								<div class="form-group">
+									<label for="lanr">LANR </label> </span> <input type="text" name="lanr"
+										ng-model="lanr" class="form-control" required />
+								</div>
+
+
+								<div class="form-group">
+									<label for="bsnr">BSNR </label> </span> <input type="text" name="bsnr"
+										ng-model="bsnr" class="form-control" required />
+								</div>
+
+								<button ng-click="submit(helpForm)"
+									class="btn btn-success btn-lg btn-block">
+									<span class="glyphicon glyphicon-flash"></span>Submit
+								</button>
+							</form>
+						</div>
+					</div>
+
+					<div ng-show="entityState == 'Patient'">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="page-header">
+								<h3>
+									<span class="glyphicon glyphicon-tower"></span> Neuen Patienten
+									anlegen
+								</h3>
+							</div>
+
+
+							<div data-ng-show="progress.active()"
+								style="color: red; font-size: 50px;">Sending…</div>
+							<form name="helpForm" novalidate role="form">
+
+								<div class="form-group">
+									<label for="name">Your Name </label> <span
+										class="label label-danger"
+										ng-show="submitted && helpForm.name.$error.required">Required!</span>
+									<input type="text" name="name" ng-model="name"
+										class="form-control" required />
+								</div>
+
+								<div class="form-group">
+									<label for="email">Your E-mail address</label> <span
+										class="label label-danger"
+										ng-show="submitted && helpForm.email.$error.required">Required!</span>
+									<span class="label label-danger"
+										ng-show="submitted && helpForm.$error.email">Invalid
+										email!</span> <input type="email" name="email" ng-model="email"
+										class="form-control" required />
+								</div>
+
+								<div class="form-group">
+									<label for="subjectList">What is the nature of your
+										request?</label> <span class="label label-danger"
+										ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+									<select name="subjectList" ng-model="subjectList"
+										ng-options="id as value for (id, value) in subjectListOptions"
+										class="form-control" required>
+										<option value=""></option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label for="url">URL of Relevant Page</label> <span
+										class="label label-danger"
+										ng-show="submitted && helpForm.$error.url">Invalid URL
+										format!</span> <input type="url" name="url" ng-model="url"
+										class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label for="comments">Description</label> <span
+										class="label label-danger"
+										ng-show="submitted && helpForm.comments.$error.required">Required!</span>
+									<textarea name="comments" ng-model="comments"
+										class="form-control" required></textarea>
+								</div>
+
+								<button data-ng-disabled="progress.active()"
+									ng-click="submit(helpForm)"
+									class="btn btn-success btn-lg btn-block">
+									<span class="glyphicon glyphicon-flash"></span>Submit
+								</button>
+							</form>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<div ng-show="entityState == 'Rezept'">
+						<div class="col-md-12">
+							<h3>Rezept einreichen</h3>
+							<form name="userForm">
+								<object width="800" height="600" data="./img/Rezept_v2.0.png">
+								</object>
+								<div
+									style="position: absolute; top: 105px; left: 60px; border-color: white; width: 430px;">
+									<b> <input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Krankenkasse"
+										ng-model="formInfo.krankenkasse" class="form-control" required>
+									</b>
+								</div>
+								<div
+									style="position: absolute; top: 155px; left: 60px; border-color: white; width: 300px;">
+									<b> <input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Name" ng-model="formInfo.name"
+										class="form-control" required>
+									</b>
+								</div>
+								<div
+									style="position: absolute; top: 177px; left: 60px; border-color: white; width: 300px;">
+									<b> <input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Strasse" ng-model="formInfo.strasse"
+										class="form-control" required>
+									</b>
+								</div>
+								<div
+									style="position: absolute; top: 199px; left: 60px; border-color: white; width: 80px;">
+									<b> <input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="PLZ" ng-model="formInfo.plz"
+										class="form-control" required>
+									</b>
+								</div>
+								<div
+									style="position: absolute; top: 199px; left: 145px; border-color: white; width: 215px;">
+									<b> <input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Ort" ng-model="formInfo.ort"
+										class="form-control" required>
+									</b>
+								</div>
+
+								<div
+									style="position: absolute; top: 199px; left: 390px; border-color: white; width: 100px;">
+									<b> <input
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Beg." ng-model="formInfo.birthday"
+										class="form-control" required>
+									</b>
+								</div>
+
+								<div
+									style="position: absolute; top: 278px; left: 181px; text-align: center; width: 180px;"
+									id="my-div">
+									<b><input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Versicherung Nr."
+										ng-model="formInfo.versNummer" class="form-control" required></b>
+								</div>
+
+								<div
+									style="position: absolute; top: 320px; left: 210px; text-align: center; width: 152px; font-size: 80%;"
+									id="my-div">
+									<b><input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Arzt Nr." ng-model="formInfo.arztNummer"
+										class="form-control" required></b>
+								</div>
+
+								<div
+									style="position: absolute; top: 278px; left: 57px; text-align: center; width: 115px;"
+									id="	my-div">
+									<b><input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Kassennummer"
+										ng-model="formInfo.kassenNummer" class="form-control" required>
+									</b>
+								</div>
+
+								<div
+									style="position: absolute; top: 275px; left: 370px; text-align: center; width: 120px; font-size: 80%;"
+									id="my-div">
+									<b>{{formInfo.status}}</b>
+								</div>
+
+								<div ng-click="getSolutionEntities()"
+									style="position: absolute; top: 330px; left: 370px; text-align: center; width: 100px; font-size: 80%;">
+									<b>{{formInfo.datum}}</b>
+								</div>
+
+
+								<div
+									style="position: absolute; top: 110px; left: 670px; text-align: center; width: 130px;"
+									id="my-div">
+									<b><input ng-change="hoverOut()"
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										type="text" name="Kassennummer"
+										ng-model="formInfo.apothekenIK" class="form-control" required></b>
+								</div>
+
+
+								<div
+									style="position: absolute; top: 575px; left: 410px; width: 400px;">
+									<a>
+										<button ng-click="sendRezeptEvent()"
+											style="height: 75px; color: black; font-size: 150%; display: inline-block; font-size: 26px; text-align: center; background-color: #ffdbcc;"
+											type="button" class="btn btn-block" ng-disabled="false">
+											<i class="glyphicon glyphicon-send"> Senden </i>
+										</button>
+									</a>
+								</div>
+
+
+
+
+
+								<!-- <div style="position: absolute;top: 430px; left: 60px;text-align: center;width: 350px;" ng-controller="Main"><input type="text" ng-model="formInfo.medikament1"></div> -->
+								<div
+									style="position: absolute; top: 365px; left: 80px; text-align: center; width: 550px;">
+									<table
+										style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+										st-table="rowCollection" class="table table-bordered">
+										<thead>
+											<tr>
+												<th style="text-align: center;" width="5%">Nr.</th>
+												<th style="text-align: left;" width="40%">Medikament</th>
+												<th style="text-align: left;" width="40%">Hersteller</th>
+												<th style="text-align: center;" width="5%">Menge</th>
+												<th style="text-align: center;" width="10%">Preis</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td
+													style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8); text-align: center;">
+
+													<div style="border-color: white; width: 30px;">
+														<b> <input ng-change="hoverOut()"
+															style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+															type="text" name="Krankenkasse"
+															ng-model="formInfo.counter1" class="form-control"
+															required>
+														</b>
+												</td>
+												<td
+													style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8); text-align: center;">
+
+
+													<div style="border-color: white; width: 175px;">
+														<b> <input ng-change="hoverOut()"
+															style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+															type="text" name="Krankenkasse"
+															ng-model="formInfo.medikament1" class="form-control"
+															required>
+														</b>
+													</div>
+
+
+												</td>
+												<td
+													style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8); text-align: center;">
+
+													<div style="border-color: white; width: 175px;">
+														<b> <input ng-change="hoverOut()"
+															style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+															type="text" name="Krankenkasse"
+															ng-model="formInfo.hersteller1" class="form-control"
+															required>
+														</b>
+													</div>
+												</td>
+												<td
+													style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8); text-align: center;">
+
+													<div style="border-color: white; width: 75px;">
+														<b> <input ng-change="hoverOut()"
+															style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+															type="text" name="Krankenkasse"
+															ng-model="formInfo.menge1" class="form-control" required>
+														</b>
+													</div>
+
+
+												</td>
+												<td
+													style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8); text-align: center;">
+
+													<div style="border-color: white; width: 75px;">
+														<b> <input ng-change="hoverOut()"
+															style="height: 20px; background-color: #d1d1e0; color: black; font-weight: bold; font-size: 12px; border-color: rgba(82, 168, 236, 0.8);"
+															type="text" name="Krankenkasse"
+															ng-model="formInfo.preis1" class="form-control" required>
+														</b>
+													</div>
+
+
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+						</form>
+
+
+
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="panel panel-primary"
+						ng-click="collapsedMsg=!collapsedMsg">
+						<div class="panel-heading">
+							<md-icon
+								md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+								style="color: greenyellow;"></md-icon>
+							Messages {{countMessages}}
+
+						</div>
+
+						<div ng-show="collapsedMsg">
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+
+								<table style="height: 250px;" st-table="displayedCollection"
+									st-safe-src="rowCollection" class="table table-striped">
+									<thead>
+										<tr>
+											<th></th>
+										</tr>
+
+									</thead>
+									<tbody
+										style="overflow-y: scroll; height: 240px; width: 90%; position: absolute;">
+										<tr ng-repeat="data in message">
+											<td>
+												<div class="alert alert-danger alert-dismissable">
+													<button type="button" class="close" data-dismiss="alert"
+														aria-hidden="true">&times;</button>
+													<a href="#" class="alert-link">{{data.msg}} </a>.
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- .panel-body -->
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class="col-sm-12">
+					<div class="panel panel-primary"
+						ng-click="collapsedPatient=!collapsedPatient">
+						<div class="panel-heading">
+							<md-icon
+								md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+								style="color: greenyellow;"></md-icon>
+							Patienten {{countPatienten}}
+
+						</div>
+
+						<div ng-show="collapsedPatient">
+							<table style="height: 300px;" st-table="displayedCollection"
+								st-safe-src="rowCollection" class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name, Vorname</th>
+										<th>Vers.Num</th>
+										<th>Typ</th>
+										<th></th>
+									</tr>
+
+								</thead>
+								<tbody
+									style="overflow-y: scroll; height: 240px; width: 90%; position: absolute;">
+									<tr ng-repeat="todo in patientListe">
+										<td>{{todo.name}},{{todo.vorname}}</td>
+										<td>{{todo.versNum}}</td>
+										<td>{{todo.KKasse}}</td>
+										<td></td>
+										<td>
+											<button type="button" ng-click="changeItem(todo)"
+												class="btn btn-sm btn-info">
+												<i class="glyphicon glyphicon-edit"> </i>
+											</button>
+											<button type="button"
+												ng-click="deleteElement('de.ibm.appli.Versicherte',todo.versNum)"
+												class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"> </i>
+											</button>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class="col-sm-12">
+					<div class="panel panel-primary"
+						ng-click="collapsedArzt=!collapsedArzt">
+
+						<div class="panel-heading">
+							<md-icon
+								md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+								style="color: greenyellow;"></md-icon>
+							Aerzte {{countAerzte}}
+
+						</div>
+						<div ng-show="collapsedArzt">
+							<table style="height: 300px;" st-table="displayedCollection"
+								st-safe-src="rowCollection" class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>LANR (Key)</th>
+										<th>BSNR</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+
+								</thead>
+								<tbody
+									style="overflow-y: scroll; height: 240px; width: 90%; position: absolute;">
+									<tr ng-repeat="todo in arztListe">
+										<td>{{todo.name}}</td>
+										<td>{{todo.lanr}}</td>
+										<td>{{todo.bsnr}}</td>
+										<td>
+											<button type="button" ng-click="editElement(todo.lanr)"
+												class="btn btn-sm btn-info">
+												<i class="glyphicon glyphicon-edit"> </i>
+											</button>
+										</td>
+										<td>
+											<button type="button"
+												ng-click="deleteElement('de.ibm.appli.Arzt',todo.lanr)"
+												class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"> </i>
+											</button>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="panel panel-primary"
+						ng-click="collapsedKK=!collapsedKK">
+						<div class="panel-heading">
+							<md-icon
+								md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+								style="color: greenyellow;"></md-icon>
+							Unfallkassen {{countKrankenkassen}}
+
+						</div>
+						<div ng-show="collapsedKK">
+							<table style="height: 300px;" st-table="displayedCollection"
+								st-safe-src="rowCollection" class="table table-striped">
+								<thead>
+									<tr>
+										<th width="40%" st-sort="duedate">Name</th>
+										<th width="15%" st-sort="priority">IK</th>
+										<th width="15%" st-sort="content">Typ</th>
+										<th width="30%" st-sort="content"></th>
+									</tr>
+								</thead>
+								<tbody
+									style="overflow-y: scroll; height: 240px; width: 90%; position: absolute;">
+									<tr ng-repeat="todo in kkListe">
+										<td>{{todo.name}}</td>
+										<td>{{todo.ik}}</td>
+										<td>{{todo.typ}}</td>
+										<td></td>
+										<td>
+											<button type="button" ng-click="changeItem(todo)"
+												class="btn btn-sm btn-info">
+												<i class="glyphicon glyphicon-edit"> </i>
+											</button>
+											<button type="button"
+												ng-click="deleteElement('de.ibm.appli.Krankenkasse',todo.ik)"
+												class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"> </i>
+											</button>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="panel panel-primary"
+						ng-click="collapsedApo =! collapsedApo">
+						<div class="panel-heading">
+							<md-icon
+								md-svg-icon="../libs/material-design-icons/navigation/svg/design/ic_menu_18px.svg"
+								style="color: greenyellow;"></md-icon>
+							Apotheken {{countApotheken}}
+
+						</div>
+						<div ng-show="collapsedApo">
+							<table style="height: 300px;" st-table="displayedCollection"
+								st-safe-src="rowCollection" class="table table-striped">
+								<thead>
+									<tr>
+										<th width="40%" st-sort="duedate">Name</th>
+										<th width="30%" st-sort="priority">Id</th>
+										<th width="30%" st-sort="content">Ort</th>
+										<th width="30%" st-sort="content">Strasse</th>
+
+									</tr>
+								</thead>
+								<tbody
+									style="overflow-y: scroll; height: 240px; width: 90%; position: absolute;">
+									<tr ng-repeat="todo in apoListe">
+										<td>{{todo.name}}</td>
+										<td>{{todo.id}}</td>
+										<td>{{todo.ort}}</td>
+										<td>{{todo.strasse}}</td>
+										<td></td>
+										<td>
+											<button type="button" ng-click="changeItem(todo)"
+												class="btn btn-sm btn-info">
+												<i class="glyphicon glyphicon-edit"> </i>
+											</button>
+											<button type="button"
+												ng-click="deleteElement('de.ibm.appli.Apotheke',todo.id)"
+												class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove-circle"> </i>
+											</button>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+	
+</script>

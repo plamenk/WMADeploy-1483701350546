@@ -1,156 +1,180 @@
-<!DOCTYPE html>
-<html lang="en"><head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Node-RED in BlueMix</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<base href="/">
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<title>Cognitive Factory</title>
+
+<!-- CSS -->
+
+
     
-	<link href="css/simplegrid.css" rel="stylesheet" media="screen">
-	<link href="css/style.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="libs/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="./bower_components/metisMenu/dist/metisMenu.min.css"
+	rel="stylesheet">
+<link href="./dist/css/sb-admin-2.css" rel="stylesheet">
+<link href="./bower_components/morrisjs/morris.css" rel="stylesheet">
+<link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./bower_components/jquery-ui-1.11.4/jquery-ui.css">
 
-	
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<link rel="stylesheet" href="./css/ng-grid.min.css">
+<link rel="stylesheet" href="./dist/css/angular-timeline.css" />
+<link rel="stylesheet" href="./dist/css/angular-timeline-animations.css" />
+<link rel="stylesheet" href="./dist/css/angular-timeline-bootstrap.css" />
+<link rel="stylesheet" href="./libs/ng-scrollbar/dist/ng-scrollbar.min.css">
+
+<link rel="stylesheet" href="./watson/css/banner.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<!-- Custom Fonts -->
+<link href="./bower_components/font-awesome/css/font-awesome.css"
+	rel="stylesheet" type="text/css">
+<link href="./dist/js/tree/treeGrid.css" rel="stylesheet"
+	type="text/css">
+
+
+<!-- JS -->
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./bower_components/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-aria.min.js"></script>
+<script	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+<script	src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+
+<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+
+<script src="libs/angular-route/angular-route.min.js"></script>
+
+<script type='text/javascript' src="./dist/js/socket.io.js"></script>
+<script type="text/javascript" src="./dist/js/docs.js"></script>
+<script type="text/javascript" src="./dist/js/ng-grid-2.0.14.min.js"></script>
+
+
+<script type='text/javascript' src="./dist/js/angular-resource.js"></script>
+<script type='text/javascript' src="./dist/js/serializer.js"></script>
+<script type='text/javascript' src="./dist/js/parser.js"></script>
+<script type='text/javascript' src="./dist/js/MQTTClient.js"></script>
+<script type='text/javascript' src="./dist/js/angular-timeline.js"></script>
+<script type='text/javascript' src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script type='text/javascript' src="./bower_components/angular/angular.js"></script>
+<script type='text/javascript' src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type='text/javascript' src="./bower_components/angular-scroll-animate/dist/angular-scroll-animate.js"></script>
+<script src="./libs/ng-scrollbar/dist/ng-scrollbar.min.js"></script>
+
+
+<!-- DataTables JavaScript -->
+
+
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+<script src="./libs/angular-translate/angular-translate.js"></script>
+<script src="./libs/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+<!-- ANGULAR CUSTOM -->
+<script src="js/controllers/MainCtrl.js"></script>
+<script src="js/controllers/WTCtrl.js"></script>
+<script src="js/appRoutes.js"></script>
+<script src="js/app.js"></script>
+
+
+<!-- jQuery -->
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript"
+	src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="./bower_components/angular-qr/lib/qrcode.js"></script>
+<script src="./bower_components/angular-qr/src/angular-qr.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="./dist/js/sb-admin-2.js"></script>
+
+<script type="text/javascript"
+	src="./dist/js/tree/tree-grid-directive.js"></script>
+
 </head>
-<body>
 
-<div class="header">
-    <div class="header-content">
-        <a href="/"><img class="logo" src="images/node-red.png" /> Node-RED in BlueMix</a>
-    </div>
-</div>
-<!-- Grid 1 -->
-<div class="title">
-    <div class="grid">
-        <div class="col-1-1">
-            <div class="content">
-                <h1>Node-RED in BlueMix</h1>
-                <h2>A visual tool for wiring the Internet of Things</h2>
-                <img src="images/node-red-title-flow.png" />
-            </div>
-        </div>
-    </div>
-</div>
+<body ng-app="sampleApp" ng-controller="MainController" ng-cloak style="background-color: aliceblue;">
 
-<!-- Grid 1/2 -->
-<div class="row2">
-    <div class="grid">
-        <div class="col-1-2">
-            <div class="content blurb">
-            <p>Node-RED provides a browser-based editor that makes it easy to wire together flows that can be deployed to the runtime in a single-click.</p>
-            <p>The version running here has been customised for the BlueMix cloud environment.</p>
-            <p>More information about Node-RED, including documentation, can be found at <a href="http://nodered.org">nodered.org</a>.</p> 
-            </div>
-        </div>
-        <div class="col-1-2">
-            <div class="content blurb">
-                <p style="text-align: center"><a style="width:350px;" class="button" href="red/">Go to your Node-RED flow editor</a></p>
-                <p style="text-align: center"><a style="width:350px;" class="button" href="ui/">Open Training Pipeline Interface</a></p>
-                <p class="insecure hide" style="text-align: center"><a href="#password-protecting">Learn how to password-protect your instance</a></p>
-                <p style="text-align: center"><a href="#custom">Learn how to customise Node-RED</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-        
-<!-- Grid 1/2 -->
-<div class="row3">
-    <div class="grid">
-        <div class="col-1-1">
-            <div class="content blurb">
-                <h3 id="custom">Customising your instance of Node-RED</h3>
-                <p>This template instance of Node-RED is enough to get you started creating flows.<p>
-                <p>You may want to customise it for your needs,
-                for example replacing this introduction page with your own, adding http authentication to the flow editor or adding new nodes to
-                the palette.</p>
-                <p>To start customising your instance of Node-RED, you can either download the application locally or use IBM DevOps Services to edit and deploy your changes directly.</p>
-                <div class="col-1-2">
-                    <div style="margin: 5px; border: 1px solid #ddd; border-radius: 5px; padding: 10px;">
-                        <h4>Using IBM DevOps Services</h4>
-                        <ol>
-                            <li>Within ACE, open the overview page for the application.</li>
-                            <li>Click the link to <b>Add Git Integration</b> and follow the guide to import the application into IBM DevOps Services</li>
-                            <li>Once complete, click the <b>Edit Code</b> link to open it in IBM DevOps Services</li>
-                            <li>Customise the application following the guide below, commit your changes and push them back to BlueMix</li> 
-                        </ol>
-                    </div>
-                </div>
-                <div class="col-1-2">
-                    <div style="margin: 5px; border: 1px solid #ddd; border-radius: 5px; padding: 10px;">
-                        <h4>Downloading the application locally</h4>
-                        <ol>
-                            <li>Within ACE, open the overview page for the application.</li>
-                            <li>Click on the <b>Start Coding</b> in the sidebar</li>
-                            <li>Follow the instructions there for downloading, editing and pushing back into BlueMix</li>
-                        </ol>
-                    </div>
-                </div>
-                <p style="clear:both"></p>
-                
-                <h4 id="password-protecting">Password protect the flow editor</h4>
-                <p>By default, the editor is open for anyone to access and modify flows. To password-protect the editor:</p>
-                <ol>
-                  <li>In the Bluemix dashboard, select the 'Environment Variables' page for your application</li>
-                  <li>Add the following user-defined variables:
-                    <ul>
-                      <li><code>NODE_RED_USERNAME</code> - the username to secure the editor with</li>
-                      <li><code>NODE_RED_PASSWORD</code> - the password to secure the editor with</li>
-                     </ul>
-                   </li>
-                   <li>Click <code>Save</code>.</li>
-                </ol>
+	<div id="wrapper">
 
-                <h4>Adding new nodes to the palette</h4>
-                <ol>
-                    <li>There is a growing collection of additional nodes that can be added to the Node-RED editor.
-                    You can search for available nodes in the <a target="_blank" href="http://flows.nodered.org">Node-RED library</a>.</li>
-                    <li>Edit the file <code>package.json</code> and add the required node package to the <code>dependencies</code>
-                    section. The format is:
-                    <pre>"node-red-node-package-name":"x.x.x"</pre>
-                    Where <code>x.x.x</code> is the desired version number.</li>
-                </ol>
-                
-                <h4>Upgrading the version of Node-RED</h4>
-                <ol><li>This boilerplate is configured to grab the latest stable release of Node-RED whenever the
-                    application is pushed into BlueMix. Simply commit and push a change from IBM DevOps Services
-                    or push from your local copy to trigger an update. You can find out about the latest version at <a href="http://nodered.org">nodered.org</a>.</li>
-                </ol>
-                    
-                <h4>Changing the static web content</h4>
-                <ol><li>The page you are reading now is served as static content from the application. This can be replaced
-                with whatever content you want in the <code>public</code> directory.</li></ol>
-                
-                <h4>Remove static web content and serve the flow editor from the root path</h4>
-                <ol><li>In the file <code>bluemix-settings.js</code>, delete the <code>httpStatic</code> and <code>httpAdminRoot</code> entries.</li></ol>
-            </div>
-        </div>
-    </div>
-</div>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0;">
+		<div class="navbar-header">			
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/"><b>IBM Watson</b> <span
+					class="span-style"></span></a>
+			</div>
+		</div>
 
-<div class="footer">
-    <div class="grid">
-        <div class="content">
-            <div class="ets-link"><a href="http://ibm.com/blogs/et">Node-RED is a creation of IBM Emerging Technology</a></div>
-            <div class="ets-link"><a href="http://ibm.com/blogs/et"><img class="ets-globe" src="images/ets-globe.png" /> </a></div>
-        </div>
-    </div>
-</div>
-<script>
+		<!-- /.navbar-header -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
+					<i class="fa fa-caret-down"></i>
+			</a>
+				<ul class="dropdown-menu dropdown-user">
+					<li><a href="#"><i class="fa fa-user fa-fw"></i> User
+							Profile</a></li>
+					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+					</li>
+					<li class="divider"></li>
+					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
+							Logout</a></li>
+				</ul> <!-- /.dropdown-user --></li>
+			<!-- /.dropdown -->
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="/home"><strong>Home</strong></a></li>
+			<li><a href="/geek"><strong>Getting Started</strong></a></li>
+			<li><a href="/projects"><strong>Technology</strong></a></li>
+			<li><a href="/maintenanceOrders"><strong>Create Maintenance Orders</strong></a></li>			
+		</ul>
 
-$(function() {
-    $(".insecure").hide();
-    $.ajax({
-        dataType: "json",
-        url: "/red/settings",
-        success: function() {
-            $(".insecure").show();
-        },
-        error: function(jqXHR,textStatus,errorThrown) {}
-    });
+	</nav>
+	
+		
 
-});
-</script>
+		<!-- Page Content -->
+
+
+		
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- <div style="margin-top: 20px; margin-left: 5px; margin-right: 5px;"	class="panel panel-default"> -->
+					<!-- <div class="panel-heading">{{ mainHeader }}</div> -->
+
+					<!-- <nav class="navbar navbar-default" role="navigation"> -->
+
+
+
+					<div ng-view></div>
+
+
+					<!-- /.panel-body -->
+					<!-- </div> -->
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+		
+
+	</div>
+
 </body>
 </html>

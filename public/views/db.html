@@ -1,0 +1,104 @@
+<div class="panel-body">
+	<div class="row" ng-controller="DBController">
+
+		<div class="col-lg-12">
+			<div class="huge">
+				<p class="page-header" ng-click="GetAllData()"
+					style="margin-top: 5px;">{{mainHeader}}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<table ng-table="usersTable">
+
+				<div class="col-lg-2" ng-repeat="user in Details">
+					<div class="{{user.color}}">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+
+									<div ng-if="user.color == 'panel panel-primary'">
+										<i class="fa fa-tasks fa-5x"></i>
+									</div>
+									<div ng-if="user.color == 'panel panel-green'">
+										<i class="glyphicon glyphicon-ok fa-2x"></i>
+									</div>
+									<div ng-if="user.color == 'panel panel-red'">
+										<i class="glyphicon glyphicon-ban-circle fa-2x"></i>
+									</div>
+
+								</div>
+								<div class="col-xs-9 text-right">
+									<div class="huge">Run {{user.counter}}</div>
+									<div>{{user.datum}}</div>
+									<div>Anzahl Gruppen: {{user.nOfC.anzahlCluster}}</div>
+								</div>
+							</div>
+						</div>
+						<a ng-href="/db/kai/{{user.laufnummer}}">
+							<div class="panel-header">
+								<span class="pull-left">View Details </span> <span
+									class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+							</div>
+						</a>
+						<div class="col-xs-10 text-right">
+							<div>
+								<button type="button" ng-mouseover="hoverIn(user)"
+									ng-mouseleave="hoverOut()" class="btn btn-info btn-sm"
+									ng-disabled="false">
+									<i class="glyphicon glyphicon-cog"> Info </i>
+								</button>
+								<a ng-href="/db/graph/{{user.laufnummer}}">
+									<button type="button" class="btn btn-success btn-sm"
+										ng-disabled="false">
+										<i class="glyphicon glyphicon-signal"> Graphic </i>
+									</button>
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				</a>
+			</table>
+
+		</div>
+
+
+
+
+		<div class="row" ng-show="hoverEdit">
+			<div class="col-lg-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">RUN {{formInfo.counter}}</div>
+					<div class="panel-body" ng-controller="NerdController">
+						<div class="col-lg-12">Laufnummer: {{formInfo.laufnummer}}</div>
+						<div class="col-lg-12">Datum : {{formInfo.datum}}</div>
+						<div class="col-lg-12">Anzahl Gruppen:
+							{{formInfo.anzahlGruppen}}</div>
+
+
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- /.row (nested) -->
+	</div>
+
+
+
+</div>
+
+
+
+
+
+
