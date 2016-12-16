@@ -1,0 +1,66 @@
+<div class="jumbotron">
+  <h1>Very Welcome</h1>
+  <p class="lead">
+    <img src="images/watsoniot.jpg"><br>
+    Control the Watson Maintenance Advisor App.
+    <p>
+      Imagine this is a FactoryWork Floor Overview about all your machines, which
+      are communicated with Watson ;)
+    </p>
+  </p>
+</div>
+
+<div class="row marketing">
+
+  <table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Machine Name</th>
+      <th>Station</th>
+      <th>Kind Of Problem</th>
+      <th>Send Problem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>HMI QuadPlus</td>
+      <td>1</td>
+      <td>hydraulic</td>
+      <td>
+        <button class="btn-warning" ng-click="send('HMI QuadPlus', '1', 'hydraulic')">Send</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>HMI QuadPlus</td>
+      <td>6</td>
+      <td>hydraulic</td>
+      <td>
+        <button class="btn-warning" ng-click="send('HMI QuadPlus', '6', 'hydraulic')">Send</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>HMI Schrauber Ultra</td>
+      <td>3</td>
+      <td>electric</td>
+      <td>
+        <button class="btn-warning" ng-click="send('HMI Schrauber Ultra', '3', 'electric')">Send</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>Getriebe-Prüfer</td>
+      <td>7</td>
+      <td>electric</td>
+      <td>
+        <button class="btn-warning" ng-click="send('Getriebe-Prüfer', '7', 'electric')">Send</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>

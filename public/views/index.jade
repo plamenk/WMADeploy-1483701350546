@@ -1,0 +1,14 @@
+extend layout
+block content
+  div
+    .row
+      .col-md-12
+        h1 Hello MEAN+ 
+    .row
+      .col-md-3
+        test angular: 5+3={{ 5+3 }}
+      .col-md-6
+        | Type your name: 
+        input(ng-model="name")
+        | Hello {{ name }} 
+      .col-md-3
