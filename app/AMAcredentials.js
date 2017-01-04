@@ -6,46 +6,33 @@ var extend          = require('util')._extend;
 var watson          = require('watson-developer-cloud');
 var router          = express.Router();
 var cfenv           = require('cfenv');
-
-console.log('>> Credentials ....................... will be loaded');
-console.log('>>     1. Dialog');
-var dialogCredentials = extend({
-	url : 'https://gateway.watsonplatform.net/dialog/api',
-	username : '5371c7e0-f88a-4fa6-855a-f384d8bc02fe',
-	password : 's54Y4aJolTDg',
-	version : 'v1'
-}, bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
+var utils           = require('./utils.js');
+var url				= require('url');
 
 
-console.log('>>     2. Visual Recognition');
-var visualRecogCredentials = extend({
-	url : 'https://gateway.watsonplatform.net/visual-recognition-beta/api',
-	username : 'd1e4920c-e5ec-4cbd-9859-7d424e672e59',
-	password : 'CCWBmmwG4TOU',
-	version : 'v2-beta',
-	version_date:'2015-12-02'
-}, vcapServices.getCredentials('visual_recognition'));
 
-function isNotEmpty(str) {
-    return (str || str.length > 0);
-}
+utils.logging('>> Credentials ....................... will be loaded');
+
+
 
 var readServicesAndCredentials = function() {    
     // keep a copy of the doc so we know its revision token
     var appEnv = cfenv.getAppEnv();
-    //console.log("########################################### "+appEnv.services.toString());
-     if (isNotEmpty(appEnv.services)) {
+    console.log("########################################### "+ utils.isNotEmpty(appEnv.services));
+     if (Object.keys(appEnv.services).length) {
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        //console.log("Data:",appEnv.services);
+        console.log("Data:",JSON.stringify(appEnv.services));
         var cred = {
         "ttsUsername": appEnv.services.text_to_speech[0].credentials.username,
         "ttsPassword": appEnv.services.text_to_speech[0].credentials.password,
         "sttUsername": appEnv.services.speech_to_text[0].credentials.username,
         "sttPassword": appEnv.services.speech_to_text[0].credentials.password,
-        "appURI": appEnv.url,
-        "endpointDialog": "/talk",
-        "endpointRR": "/talkRR"
-        }
+        "appURI": url.parse(appEnv.url).hostname,
+        "endpointDialog": "/watson/talk",
+        "endpointRR": "/watson/talkRR",
+		"endpointPhoto": "/watson/api/photo"
+        };
+		
         console.log(cred);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         return cred;
@@ -60,8 +47,9 @@ var readServicesAndCredentials = function() {
             "sttUsername"   : "43d9ef6b-f84c-4888-b4ef-d576e0143aa3",
             "sttPassword"   : "ZOeGXrQ0Kw9Y",
             "appURI"        : "",
-            "endpointDialog": "/talk",
-            "endpointRR"    : "/talkRR",
+            "endpointDialog": "/watson/talk",
+            "endpointRR"    : "/watson/talkRR",
+			"endpointPhoto": "/watson/api/photo",
             "local"         : true
         }
         return cred;
@@ -70,7 +58,7 @@ var readServicesAndCredentials = function() {
   };
 
 router.get('/QRCode', function(req, res) {
-	console.log(" Get the credentials for the Samrtphone App from the Cloud Foundry Environment");
+	console.log(" Get the credentials for the Smartphone App from the Cloud Foundry Environment");
 	var results = readServicesAndCredentials();
 		console.log(results);
 		//if (results.cred.local == true) {
@@ -107,8 +95,7 @@ router.get('/allServices', function(req, res) {
 
 module.exports = { 
     router : router,
-    dialogCred  : dialogCredentials,
-    visuRecog   : visualRecogCredentials,
+//    visuRecog   : visualRecogCredentials,
     allServicesAndCred : readServicesAndCredentials
 }
 
