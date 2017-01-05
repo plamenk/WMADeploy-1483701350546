@@ -1,5 +1,5 @@
 {
-	"name": "NodejsStarterApp",
+	"name": "WMADeploy",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -45,7 +45,7 @@
         "mqtt": "^1.7.4",
         "multer": "^1.1.0",
         "mysql": "^2.5.4",
-		"nano": "5.11.2",
+		"nano": "^6.2.0",
 		"node-red": "0.15.2",
 		"node-red-bluemix-nodes":"1.1.9",
 		"node-red-node-watson-ben-nodes-1" : "https://github.com/BenediktKrueger/node-red-node-watson",
@@ -75,6 +75,6 @@
 	},
 	"repository": {},
 	"engines": {
-		"node": "4.x"
+        "node": "4.2.x"
 	} 
 }
