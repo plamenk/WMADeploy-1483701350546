@@ -1,11 +1,48 @@
+---
+declared-services:
+  cloudantNoSQLDB-WMADeploy:
+    label: cloudantNoSQLDB
+    plan: Lite
+  alchemy-WMADeploy:
+    label: alchemy_api
+    plan: free
+  conversation-WMADeploy:
+    label: conversation
+    plan: free
+  document_conversion-WMADeploy:
+    label: document_conversion
+    plan: standard
+  retrieve_and_rank-WMADeploy:
+    label: retrieve_and_rank
+    plan: standard
+  speech_to_text-WMADeploy:
+    label: speech_to_text
+    plan: standard
+  text_to_speech-WMADeploy:
+    label: text_to_speech
+    plan: standard
+  iotf-service-WMADeploy:
+    label: iotf-service
+    plan: iotf-service-free
+  watson_vision_combined-WMADeploy:
+    label: watson_vision_combined
+    plan: free
+
+
 applications:
 - memory: 1600M
   command: node --max-old-space-size=384 node_modules/node-red/red.js --settings ./bluemix-settings.js -v
   services:
-    - sample-node-red-cloudantNoSQLDB
-env:
-    NODE_RED_STORAGE_NAME: sample-node-red-cloudantNoSQLDB
-declared-services:
-  sample-node-red-cloudantNoSQLDB:
-    label: cloudantNoSQLDB
-    plan:  Lite
+    -   cloudantNoSQLDB-WMADeploy
+    -   alchemy-WMADeploy
+    -   conversation-WMADeploy
+    -   document_conversion-WMADeploy
+    -   retrieve_and_rank-WMADeploy
+    -   speech_to_text-WMADeploy
+    -   text_to_speech-WMADeploy
+    -   iotf-service-WMADeploy
+    -   watson_vision_combined-WMADeploy
+  env:
+    NODE_RED_STORAGE_NAME: cloudantNoSQLDB-WMADeploy
+  name: WMADeploy
+  host: WMADeploy

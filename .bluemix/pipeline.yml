@@ -1,59 +1,27 @@
 ---
 stages:
-- name: Build Stage
+- name: Empty Build Stage
   inputs:
   - type: git
     branch: master
-  triggers:
-  - type: commit
   jobs:
-  - name: Build
+  - name: Empty Build Job
     type: builder
-    artifact_dir: ''
-- name: Deploy Stage
+- name: Deploy to Bluemix
   inputs:
   - type: job
-    stage: Build Stage
-    job: Build
+    stage: Empty Build Stage
+    job: Empty Build Job
   triggers:
   - type: stage
   jobs:
-  - name: Deploy to dev
+  - name: Push to Cloud Foundry
     type: deployer
     target:
-      region_id: ibm:yp:us-south
+      url: ${CF_TARGET_URL}
       organization: ${CF_ORGANIZATION}
       space: ${CF_SPACE}
       application: ${CF_APP}
     script: |-
       #!/bin/bash
-
-      cf create-service alchemy_api free "alchemy ${CF_SPACE}"
-      cf create-service cloudantNoSQLDB Lite "cloudant ${CF_SPACE}"
-      cf create-service conversation free "conversation ${CF_SPACE}"
-      cf create-service document_conversion standard "document_conversion ${CF_SPACE}"
-      cf create-service retrieve_and_rank standard "retrieve_and_rank ${CF_SPACE}"
-      cf create-service speech_to_text standard "speech_to_text ${CF_SPACE}"
-      cf create-service text_to_speech standard "text_to_speech ${CF_SPACE}"
-      cf create-service iotf-service iotf-service-free "iotf-service ${CF_SPACE}"
-      cf create-service watson_vision_combined free "watson_vision_combined ${CF_SPACE}"
-      #cf create-service cloudantNoSQLDB Lite "cloudant ${CF_SPACE}"
-
-      cf push "${CF_APP}"
-
-      cf bind-service ${CF_APP} "alchemy ${CF_SPACE}"
-      cf bind-service ${CF_APP} "cloudant ${CF_SPACE}"
-      cf bind-service ${CF_APP} "conversation ${CF_SPACE}"
-      cf bind-service ${CF_APP} "document_conversion ${CF_SPACE}"
-      cf bind-service ${CF_APP} "retrieve_and_rank ${CF_SPACE}"
-      cf bind-service ${CF_APP} "watson_vision_combined ${CF_SPACE}"
-      cf bind-service ${CF_APP} "speech_to_text ${CF_SPACE}"
-      cf bind-service ${CF_APP} "text_to_speech ${CF_SPACE}"
-      cf bind-service ${CF_APP} "iotf-service ${CF_SPACE}"
-  
-
-
-      cf restart-app-instance "${CF_APP}" 0
-
-      # View logs
-      #cf logs "${CF_APP}" --recent
+      cf push -f manifest.yml
