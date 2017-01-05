@@ -25,3 +25,6 @@ stages:
     script: |-
       #!/bin/bash
       cf push -f manifest.yml
+	 cf restart-app-instance ${CF_APP} 0
+
+
