@@ -46,3 +46,4 @@ applications:
     NODE_RED_STORAGE_NAME: cloudantNoSQLDB-WMADeploy
   name: WMADeploy
   host: WMADeploy
+  disk_quota: 2GB
